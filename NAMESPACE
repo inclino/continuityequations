@@ -1,1 +1,10 @@
-exportPattern("^[[:alpha:]]+")
+exportPattern("^[^\\.]")
+
+S3method(print, cem)
+S3method(summary, cem)
+S3method(predict, cem)
+
+importFrom(vars, VAR)
+importFrom(vars, predict)
+importFrom(tseries, garch)
+importFrom(tseries, predict)
