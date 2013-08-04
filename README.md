@@ -1,3 +1,6 @@
+![Inclino Logo](http://inclino.nl/logo.png "Inclino")
+
+
 # R Package for Continuity Equations (continuityequations) #
 This project aims to implement a single [R](http://www.r-project.org/ "The R Project for Statistical Computing") package for using continuity equations in continuous assurance.
 
@@ -25,8 +28,7 @@ The R language has recently gathered significant attention from the financial se
 Another advantage of R is that it can be installed on almost any target platform. Furthermore, R code can be executed without being invoked by a user, but as an automated script via cron or as an additional stage in an existing ETL procedure.
 
 ## About the developer ##
-I am Erik van Kempen, a lecturer in Statistics, ERP and Business Intelligence at Fontys Univerity of Applied Sciences in Eindhoven,
-The Netherlands. Prior to my lectureship, I obtained a Bachelor of Business Administration in Accountancy.
+I am [Erik van Kempen](http://nl.linkedin.com/in/evankempen), a lecturer in Statistics, ERP and Business Intelligence at Fontys Univerity of Applied Sciences in Eindhoven, The Netherlands. Prior to my lectureship, I obtained a Bachelor of Business Administration in Accountancy.
 
 My current research interests are in the areas continuous assurance, smart auditing, business intelligence and process mining.
 
