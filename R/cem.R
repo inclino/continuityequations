@@ -20,8 +20,9 @@
   model.sem <- NULL
    
   # VAR
+  require(vars)
   x.ts <- as.ts(x)
-  model.var <- VAR(x.ts, p = var.p, type = var.type, season = var.season, exogen = var.exogen, lag.max = var.lag.max, ic = var.ic)
+  model.var <- VAR(x.ts, p = var.p, type = var.type, season = var.season, lag.max = var.lag.max, ic = var.ic)
   
   # RVAR
   model.rvar <- NULL
