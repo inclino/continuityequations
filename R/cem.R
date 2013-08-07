@@ -9,12 +9,23 @@
                 var.p = 1,
                 var.type = "const",
                 var.season = NULL,
-                var.exogen = NULL,
                 var.lag.max = NULL,
                 var.ic = NULL,
                 rvar.method = "ser",
                 rvar.thresh = 2.0,
                 rvar.resmat = NULL,
+                bvar.p = NULL,
+                bvar.z = NULL,
+                bvar.l0 = 0.1,
+                bvar.l1 = 0.1,
+                bvar.l3 = 0.1,
+                bvar.l4 = 0.5,
+                bvar.l5 = 0.5,
+                bvar.m5 = 0,
+                bvar.m6 = 0,
+                bvar.qm = 4,
+                bvar.prior = 0,
+                bvar.posterior.fit = FALSE,
                 ...) {
   
   # Sanity checks
@@ -44,7 +55,7 @@
    
   # VAR
   require("vars")
-  model.var <- VAR(x.ts, p = var.p, type = var.type, season = var.season, exogen = var.exogen, lag.max = var.lag.max, ic = var.ic)
+  model.var <- VAR(x.ts, p = var.p, type = var.type, season = var.season, lag.max = var.lag.max, ic = var.ic)
   
   # RVAR
   if(class(model.var) == "varest") {
@@ -55,8 +66,16 @@
   }
      
   # BVAR
-  model.bvar <- NULL
-  warning("BVAR model not yet implemented.")
+  warning("BVAR model not yet fully implemented.")
+  require("MSBVAR")
+  if(is.null(bvar.p)) {
+    if(is.null(var.lag.max)) {
+      bvar.p = 30
+    } else {
+      bvar.p = var.lag.max
+    }
+  }
+  model.bvar <- szbvar(x.ts, p = bvar.p, z = bvar.z, lambda0 = bvar.l0, lambda1 = bvar.l1, lambda3 = bvar.l3, lambda4 = bvar.l4, lambda5 = bvar.l5, mu5 = bvar.m5, mu6 = bvar.m6, nu = ncol(x) + 1, qm = bvar.qm, prior = bvar.prior, posterior.fit = bvar.posterior.fit)
      
   # GARCH
   model.garch <- NULL
