@@ -1,3 +1,3 @@
 "summary.cep" <- function(x, ...) {
-  print("ERROR: Function not implemented yet.")
+  stop("ERROR: Function not implemented yet.")
 }

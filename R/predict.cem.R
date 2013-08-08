@@ -47,6 +47,7 @@
   
   # BVAR
   if(class(cem$BVAR) == "BVAR") {
+    #require("MSBVAR")
     warning("BVAR model prediction not yet fully implemented.")
     pred.bvar <- NULL
   } else {

@@ -1,32 +1,33 @@
 "ce.model" <- function(x,
-                sem.method = "OLS",
-                sem.inst = NULL,
-                sem.data = NULL,
-                sem.restrict.matrix = NULL,
-                sem.restrict.rhs = NULL,
-                sem.restrict.regMat = NULL,
-                sem.pooled = FALSE,
-                var.p = 1,
-                var.type = "const",
-                var.season = NULL,
-                var.lag.max = NULL,
-                var.ic = NULL,
-                rvar.method = "ser",
-                rvar.thresh = 2.0,
-                rvar.resmat = NULL,
-                bvar.p = NULL,
-                bvar.z = NULL,
-                bvar.l0 = 0.1,
-                bvar.l1 = 0.1,
-                bvar.l3 = 0.1,
-                bvar.l4 = 0.5,
-                bvar.l5 = 0.5,
-                bvar.m5 = 0,
-                bvar.m6 = 0,
-                bvar.qm = 4,
-                bvar.prior = 0,
-                bvar.posterior.fit = FALSE,
-                ...) {
+                       sem.method = "OLS",
+                       sem.inst = NULL,
+                       sem.data = NULL,
+                       sem.restrict.matrix = NULL,
+                       sem.restrict.rhs = NULL,
+                       sem.restrict.regMat = NULL,
+                       sem.pooled = FALSE,
+                       var.p = 1,
+                       var.type = "const",
+                       var.season = NULL,
+                       var.exogen = NULL, # Must be added to VAR function call when fixed in vars package
+                       var.lag.max = NULL,
+                       var.ic = NULL,
+                       rvar.method = "ser",
+                       rvar.thresh = 2.0,
+                       rvar.resmat = NULL,
+                       bvar.p = NULL,
+                       bvar.z = NULL,
+                       bvar.l0 = 0.1,
+                       bvar.l1 = 0.1,
+                       bvar.l3 = 0.1,
+                       bvar.l4 = 0.5,
+                       bvar.l5 = 0.5,
+                       bvar.m5 = 0,
+                       bvar.m6 = 0,
+                       bvar.qm = 4,
+                       bvar.prior = 0,
+                       bvar.posterior.fit = FALSE,
+                       ...) {
   
   # Sanity checks
   if(any(is.na(x))) {
@@ -81,7 +82,7 @@
   model.garch <- NULL
   warning("GARCH model not yet implemented.")
      
-  result <- list(SEM = model.sem, VAR = model.var, RVAR = model.rvar, BVAR = model.bvar, GARCH = model.garch)
+  result <- list(SEM = model.sem, VAR = model.var, RVAR = model.rvar, BVAR = model.bvar, GARCH = model.garch, call = match.call())
   class(result) <- "cem"
   return(result)
 }
