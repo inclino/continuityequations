@@ -7,45 +7,8 @@
   if(missing(type)) type <- "simple"
   
   if(type == "simple") {
-    ##  Models
-    # SEM
-    if(class(cep$SEM) == "data.frame") {
-      require("systemfit")
-      print(cep$SEM)
-    } else {
-      warning("SEM model missing.")
-    }
-    
-    # VAR
-    if(class(cep$VAR) == "varprd") {
-      require("vars")
-      print(cep$VAR)
-    } else {
-      warning("VAR model missing.")
-    }
-    
-    # RVAR
-    if(class(cep$RVAR) == "varprd") {
-      require("vars")
-      print(cep$RVAR)
-    } else {
-      warning("RVAR model missing.")
-    }
-    
-    # BVAR
-    if(class(cep$BVAR) == "BVAR") { # Class unknown yet
-      require("MSBVAR")
-      print(cep$BVAR)
-    } else {
-      warning("BVAR model missing.")
-    }
-    
-    # GARCH
-    if(class(cep$GARCH) == "GARCH") { # Class unknown yet
-      require("tseries")
-      print(cep$GARCH)
-    } else {
-      warning("GARCH model missing.")
+    for (prediction in cep){
+      print(prediction)
     }
   } else if(type == "fancy") { # Simple is not really helpful
     stop("Function not implemented yet.")
