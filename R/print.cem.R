@@ -7,9 +7,7 @@
   if(missing(type)) type <- "simple"
   
   if(type == "simple") {
-    for (model in cem) {
-      print(model)
-    }
+    print.default(cem)
   } else if(type == "fancy") { # Simple is not really helpful
     stop("Function not implemented yet.")
   } else {
