@@ -8,7 +8,7 @@
   
   if(type == "simple") {
     for (model in cem) {
-      summary(model)
+      print(summary(model))
     }
   } else if(type == "fancy") { # Simple is not really helpful
     stop("Function not implemented yet.")

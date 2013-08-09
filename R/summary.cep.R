@@ -7,8 +7,8 @@
   if(missing(type)) type <- "simple"
   
   if(type == "simple") {
-    for (prediction in cep){
-      summary(prediction)
+    for (prediction in pred.simple) {
+      print(summary(prediction))
     }
   } else if(type == "fancy") { # Simple is not really helpful
     stop("Function not implemented yet.")
